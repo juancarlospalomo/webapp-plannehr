@@ -1,0 +1,24 @@
+{
+    "name": "webapp-plannehr",
+    "version": "0.0.0",
+    "description": "Web App Plannehr with AngularJS Material Design",
+    "main": "home.html",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/juancarlospalomo/webapp-plannehr"
+    },
+    "author": "Juan Carlos Palomo",
+    "license": "ISC",
+    "devDependencies": {
+        "http-server": "^0.6.1"
+    },
+    "bugs": {
+        "url": "https://github.com/juancarlospalomo/webapp-plannehr/issues"
+    },
+    "homepage": "https://github.com/juancarlospalomo/webapp-plannehr",
+    "scripts": {
+        "postinstall": "bower install",
+        "prestart": "npm install",
+        "start": "http-server -a 0.0.0.0 -p 8000"
+    }
+}

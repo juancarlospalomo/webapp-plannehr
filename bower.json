@@ -1,0 +1,24 @@
+{
+    "name": "webapp-plannehr",
+    "version": "0.0.0",
+    "authors": [
+        "Juan Carlos Palomo <juancarlos.palomo@gmail.com>"
+    ],
+    "description": "Web App Plannehr with AngularJS Material Design",
+    "main": "home.html",
+    "moduleType": [
+        "es6"
+    ],
+    "license": "MIT",
+    "homepage": "home.html",
+    "dependencies": {
+        "angular-material": "0.9.6"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
