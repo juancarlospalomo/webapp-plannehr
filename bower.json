@@ -12,7 +12,8 @@
     "license": "MIT",
     "homepage": "home.html",
     "dependencies": {
-        "angular-material": "0.9.6"
+        "angular-route": "1.4.0",
+        "angular-material": "0.9.7"
     },
     "ignore": [
         "**/.*",

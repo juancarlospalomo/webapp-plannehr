@@ -1,0 +1,39 @@
+﻿<div layout-fill>
+    <md-tabs md-dynamic-height md-border-bottom md-center-tabs>
+
+        <md-tab label="Lista">
+            <div layout="column">
+                <md-whiteframe class="md-whiteframe-z2" layout layout-align="center left" ng-repeat="product in list">
+                    <md-list>
+                        <md-list-item class="md-2-line">
+                            <div class="md-list-item-text">
+                                <h3 class="md-headline">{{product.name}}</h3>
+                                <p>{{product.description}}</p>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                    <span flex></span>
+                    <md-icon md-svg-icon="action:edit"></md-icon>
+                </md-whiteframe>
+            </div>
+        </md-tab>
+
+        <md-tab label="Mis Productos">
+            <div layout="column">
+                <md-whiteframe class="md-whiteframe-z2" layout layout-align="center left" ng-repeat="product in catalog">
+                    <md-list>
+                        <md-list-item class="md-2-line">
+                            <div class="md-list-item-text">
+                                <h3 class="md-headline">{{product.name}}</h3>
+                                <p>{{product.description}}</p>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                    <span flex></span>
+                    <md-checkbox value="true"></md-checkbox>
+                </md-whiteframe>
+            </div>
+        </md-tab>
+    </md-tabs>
+</div>
+

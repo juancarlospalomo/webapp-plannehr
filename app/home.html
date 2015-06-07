@@ -1,9 +1,69 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <title></title>
+    <title>Plannehr</title>
+    <!-- viewport for web apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../vendor/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
-    hola
+<body ng-app="plannehrApp" layout-fill>
+
+    <section layout="row" ng-controller="plannehr_controller">
+        <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+            <md-toolbar class="md-whiteframe-z1">
+                <h1>Menu</h1>
+            </md-toolbar>
+            <md-list>
+                <md-list-item>
+                    <md-button>
+                        <md-icon md-svg-icon="action:market" class="avatar"></md-icon>Supermercados
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button>
+                        <md-icon md-svg-icon="action:dollar" class="avatar"></md-icon>Gastos
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button>
+                        <md-icon md-svg-icon="action:settings" class="avatar"></md-icon>Ajustes
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <div layout="column" flex>
+            <md-toolbar layout="row">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" hide-gt-sm>
+                        <md-icon md-svg-icon="{{menu_icon}}"></md-icon>
+                    </md-button>
+                    <span flex></span>
+                    <md-button class="md-icon-button">
+                        <md-icon md-svg-icon="action:mic"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="addProduct();">
+                        <md-icon md-svg-icon="action:add"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <div ng-view layout-padding>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <script src="../vendor/angular/angular.min.js"></script>
+    <script src="../vendor/angular-animate/angular-animate.min.js"></script>
+    <script src="../vendor/angular-aria/angular-aria.min.js"></script>
+    <script src="../vendor/angular-route/angular-route.min.js"></script>
+    <script src="../vendor/angular-material/angular-material.min.js"></script>
+    <!-- App Package -->
+    <script src="common/breadcrumbs.js"></script>
+    <script src="app.js"></script>
+    <script src="enter-product-list/enterproductlist.js"></script>
+    <script src="product-card/productcard.js"></script>
 </body>
 </html>
