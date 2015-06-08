@@ -1,0 +1,10 @@
+﻿{
+    "measures": [
+        { "id": 1, "name": "gramo" },
+        { "id": 2, "name": "kilogramo" },
+        { "id": 3, "name": "litro" },
+        { "id": 4, "name": "mililitro" },
+        { "id": 5, "name": "unidad" },
+        { "id": 6, "name": "paquete" }
+    ]
+}

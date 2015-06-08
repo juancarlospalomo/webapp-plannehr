@@ -1,13 +1,14 @@
 'use strict';
 
 /* App Module */
-/* App Structure based on https://github.com/angular-app/angular-app*/
+/* App Structure based on https://github.com/angular-app/angular-app */
 
 var app = angular.module('plannehrApp', ['ngMaterial',
     'ngRoute',
     'enterproductlist',
     'productcard',
-    'services.breadcrumbs']);
+    'services.breadcrumbs',
+    'services.database']);
 
 
 app.constant('plannehrContants', {
@@ -49,7 +50,8 @@ app.controller('plannehr_controller', ['$scope',
     'breadcrumbs',
     '$mdSidenav',
     '$rootScope',
-    'plannehrContants', function ($scope, $location, breadcrumbs, $mdSidenav, $rootScope, plannehrContants) {
+    'plannehrContants',
+    'database', function ($scope, $location, breadcrumbs, $mdSidenav, $rootScope, plannehrContants, database) {
 
         var isHome = true;
 
@@ -80,8 +82,5 @@ app.controller('plannehr_controller', ['$scope',
         $scope.addProduct = function () {
             $location.path('/productcard');
         }
-
-
-
 
     }]);

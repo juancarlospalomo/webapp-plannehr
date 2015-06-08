@@ -1,7 +1,28 @@
-﻿<div>
-    <div layout="column">
-        <md-select placeholder="State" ng-model="category">
-            <md-option ng-repeat="category in categories" value="{{category.name}}">{{category.name}}</md-option>
+﻿<div layout="column">
+
+    <md-input-container>
+        <label>Producto</label>
+        <input ng-model="product.name"/>
+    </md-input-container>
+
+    <div layout-fill>
+        <md-select placeholder="Zona de Compra" ng-model="product.categoryId">
+            <md-option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</md-option>
         </md-select>
     </div>
+
+    <div layout-fill layout="row">
+        <md-input-container>
+            <label>Cantidad</label>
+            <input ng-model="product.amount" />
+        </md-input-container>
+        <md-select placeholder="Unidad de Medida" ng-model="product.unitId">
+            <md-option ng-repeat="measureUnit in measureUnits" value="{{measureUnit.id}}">{{measureUnit.name}}</md-option>
+        </md-select>
+    </div>
+
+    <div layout="column" layout-align="center end">
+        <md-button class="md-primary" ng-click="add();">OK</md-button>
+    </div>
 </div>
+

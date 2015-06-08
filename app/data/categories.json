@@ -1,0 +1,14 @@
+﻿{
+    "categories": [
+        { "id": 1, "name": "Menaje" },
+        { "id": 2, "name": "Bebidas" },
+        { "id": 3, "name": "Embutido, Carne, Pollo" },
+        { "id": 4, "name": "Queso y Yogur" },
+        { "id": 5, "name": "Pescado y Congelados" },
+        { "id": 6, "name": "Verduras" },
+        { "id": 7, "name": "Panadería y Bollería" },
+        { "id": 8, "name": "Legumbres y Conservas" },
+        { "id": 9, "name": "Higiene" },
+        { "id": 10, "name": "Otro" }
+    ]
+}
