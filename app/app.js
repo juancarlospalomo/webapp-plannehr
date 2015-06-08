@@ -9,40 +9,79 @@ var app = angular.module('plannehrApp', ['ngMaterial',
     'productcard',
     'services.breadcrumbs']);
 
-app.config(['$routeProvider', '$mdIconProvider', function ($routeProvider, $mdIconProvider) {
-    /* Route config */
-    $routeProvider.when('/enterproductlist', {
-        templateUrl: 'enter-product-list/enterproductlist.html',
-        controller: 'enterproductlist_controller'
-    }).
-        when('/productcard', {
-            templateUrl: 'product-card/productcard.html',
-            controller: 'productcard_controller'
+
+app.constant('plannehrContants', {
+    HOME_LIST: 'enterproductlist',
+    HOME_SHOPPING_LIST: 'shoppinglist'
+});
+
+app.config(['$routeProvider',
+    '$mdIconProvider',
+    'plannehrContants', function ($routeProvider, $mdIconProvider, plannehrContants) {
+        /* Route config */
+        $routeProvider.when('/' + plannehrContants.HOME_LIST, {
+            templateUrl: 'enter-product-list/enterproductlist.html',
+            controller: 'enterproductlist_controller'
         }).
-        otherwise({
-            redirectTo: '/enterproductlist'
+            when('/productcard', {
+                templateUrl: 'product-card/productcard.html',
+                controller: 'productcard_controller'
+            }).
+            otherwise({
+                redirectTo: '/enterproductlist'
+            });
+
+        /* Icon provider */
+        $mdIconProvider
+            .icon('action:menu', 'assets/svg/ic_menu.svg')
+            .icon('action:mic', 'assets/svg/ic_mic.svg')
+            .icon('action:edit', 'assets/svg/ic_edit.svg')
+            .icon('action:market', 'assets/svg/ic_supermarket.svg')
+            .icon('action:settings', 'assets/svg/ic_settings.svg')
+            .icon('action:dollar', 'assets/svg/ic_dollar.svg')
+            .icon('action:add', 'assets/svg/ic_add.svg')
+            .icon('action:back', 'assets/svg/ic_back.svg');
+    }]);
+
+
+app.controller('plannehr_controller', ['$scope',
+    '$location',
+    'breadcrumbs',
+    '$mdSidenav',
+    '$rootScope',
+    'plannehrContants', function ($scope, $location, breadcrumbs, $mdSidenav, $rootScope, plannehrContants) {
+
+        var isHome = true;
+
+        $scope.menu_icon = 'action:menu';
+        $scope.breadcrumbs = breadcrumbs;
+
+        /*
+        * Build handler to open/close a SideNav;
+        */
+        $scope.toggleLeft = function (navID) {
+            if (isHome) {
+                $mdSidenav(navID).toggle();
+            } else {
+                $location.path($scope.breadcrumbs.getPrevious().path);
+            }
+        }
+
+        $rootScope.$on('navigationChange', function (event, current) {
+            if (current.template == plannehrContants.HOME_LIST) {
+                isHome = true;
+                $scope.menu_icon = 'action:menu';
+            } else {
+                isHome = false;
+                $scope.menu_icon = 'action:back';
+            }
         });
 
-    /* Icon provider */
-    $mdIconProvider
-        .icon('action:menu', 'assets/svg/ic_menu.svg')
-        .icon('action:mic', 'assets/svg/ic_mic.svg')
-        .icon('action:edit', 'assets/svg/ic_edit.svg')
-        .icon('action:market', 'assets/svg/ic_supermarket.svg')
-        .icon('action:settings', 'assets/svg/ic_settings.svg')
-        .icon('action:dollar', 'assets/svg/ic_dollar.svg')
-        .icon('action:add', 'assets/svg/ic_add.svg');
-}]);
+        $scope.addProduct = function () {
+            $location.path('/productcard');
+        }
 
 
-app.controller('plannehr_controller', ['$scope', '$location', 'breadcrumbs', function ($scope, $location, breadcrumbs) {
 
-    $scope.menu_icon = 'action:menu';
-    $scope.breadcrumbs = breadcrumbs;
 
-    $scope.addProduct = function () {
-        $location.path('/productcard');
-        console.log($scope.breadcrumbs.getAll());
-    }
-
-}]);
+    }]);

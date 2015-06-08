@@ -35,7 +35,7 @@
         <div layout="column" flex>
             <md-toolbar layout="row">
                 <div class="md-toolbar-tools">
-                    <md-button class="md-icon-button" hide-gt-sm>
+                    <md-button class="md-icon-button" hide-gt-sm ng-click="toggleLeft('left');">
                         <md-icon md-svg-icon="{{menu_icon}}"></md-icon>
                     </md-button>
                     <span flex></span>
@@ -61,8 +61,8 @@
     <script src="../vendor/angular-route/angular-route.min.js"></script>
     <script src="../vendor/angular-material/angular-material.min.js"></script>
     <!-- App Package -->
-    <script src="common/breadcrumbs.js"></script>
     <script src="app.js"></script>
+    <script src="common/breadcrumbs.js"></script>
     <script src="enter-product-list/enterproductlist.js"></script>
     <script src="product-card/productcard.js"></script>
 </body>

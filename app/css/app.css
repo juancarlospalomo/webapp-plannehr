@@ -1,3 +1,7 @@
 ﻿body {
 }
 
+md-whiteframe {
+    background: #fff;
+    margin: 0.5em;
+}
