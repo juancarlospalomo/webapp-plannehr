@@ -18,7 +18,14 @@ app.constant('plannehrContants', {
 
 app.config(['$routeProvider',
     '$mdIconProvider',
-    'plannehrContants', function ($routeProvider, $mdIconProvider, plannehrContants) {
+    'plannehrContants',
+    '$mdThemingProvider', function ($routeProvider, $mdIconProvider, plannehrContants, $mdThemingProvider) {
+
+        /* Theme config */
+        $mdThemingProvider.theme('default')
+            .primaryPalette('red');
+
+
         /* Route config */
         $routeProvider.when('/' + plannehrContants.HOME_LIST, {
             templateUrl: 'enter-product-list/enterproductlist.html',

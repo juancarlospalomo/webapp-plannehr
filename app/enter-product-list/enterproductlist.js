@@ -6,13 +6,13 @@
 
     database.getProducts().then(function (rows) {
         for (i = 0; i < rows.length; i++) {
-            console.log(rows.item(i));
-            var product = model.product;
+            var product = {};
+            product.id = rows.item(i)._id;
             product.name = rows.item(i).name;
             $scope.list.push(product);
         }
-
     });
+
     $scope.catalog = [{ 'name': 'product2', 'description': 'description2' }];
 
 }]);

@@ -14,6 +14,12 @@
         COLUMN_MARKET_ID: "market_id",
         COLUMN_COMMITTED: "committed",
         DML_TABLE_LIST: {
+            _id: {
+                type: "INTEGER",
+                null: "NOT NULL",
+                primary: true,
+                auto_increment: true
+            },
             name: { type: 'INTEGER', null: 'NOT NULL' },
             amount: { type: 'TEXT' },
             unit_id: { type: 'INTEGER' },
@@ -45,13 +51,12 @@
         }
     }
 
-    //TODO: where param
+    //TODO: where param { committed: "0" }
     database.getProducts = function () {
         var db = $webSql.openDatabase(contract_db.DB_NAME, contract_db.DB_VERSION, contract_db.DB_DESC, contract_db.DB_SIZE);
         var deferred = $q.defer();
         if (typeof (db) != 'undefined') {
-            db.select(contract_db.LIST, { committed: "0" }).then(function (result) {
-                console.log(result.rows);
+            db.selectAll(contract_db.LIST).then(function (result) {
                 deferred.resolve(result.rows);
             }, function (error) {
                 console.log(error);

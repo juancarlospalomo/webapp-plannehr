@@ -1,7 +1,11 @@
 ﻿body {
+    font-family: 'Roboto', sans-serif;
 }
 
 md-whiteframe {
-    background: #fff;
     margin: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
+
+
